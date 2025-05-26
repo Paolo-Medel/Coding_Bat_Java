@@ -3,7 +3,7 @@ public class Main {
         MapPractice mappy = new MapPractice();
         RecursionPractice recurse = new RecursionPractice();
 
-        int value = recurse.fibonacci(6);
+        int value = recurse.triangle(2);
         System.out.println(value);
     }
 }
