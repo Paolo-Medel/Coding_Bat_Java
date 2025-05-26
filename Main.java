@@ -1,9 +1,9 @@
 public class Main {
     public static void main(String[] args) {
         MapPractice mappy = new MapPractice();
-        RecursionPractice thingy = new RecursionPractice();
+        RecursionPractice recurse = new RecursionPractice();
 
-        int value = thingy.factorial(3);
+        int value = recurse.fibonacci(6);
         System.out.println(value);
     }
 }
