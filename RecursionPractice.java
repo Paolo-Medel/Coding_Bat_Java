@@ -104,4 +104,41 @@ public class RecursionPractice {
 
         return rows + triangle(rows - 1);
     }
+
+    public int sumDigits(int n){
+//      Given a non-negative int n, return the sum of its digits recursively (no loops).
+//      Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+
+//      sumDigits(126) → 9
+//      sumDigits(49) → 13
+//      sumDigits(12) → 3
+        if (n < 10)
+        {
+            return n;
+        }
+        int rightmost_int = n % 10;
+        return rightmost_int + sumDigits(n/10);
+    }
+
+    public int count7(int n){
+//      Given a non-negative int n, return the count of the occurrences of 7 as a digit, so for example 717 yields 2. (no loops).
+//      Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+
+//      count7(717) → 2
+//      count7(7) → 1
+//      count7(123) → 0
+        int seven_count = 0;
+        if (n == 0)
+        {
+            return 0;
+        }
+
+        int rightmost_value = n % 10;
+        if (rightmost_value == 7)
+        {
+            seven_count++;
+        }
+
+        return seven_count + count7(n/10);
+    }
 }
