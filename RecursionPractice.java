@@ -94,24 +94,24 @@ public class RecursionPractice {
     }
 
     public int triangle(int rows){
-//      We have triangle made of blocks. The topmost row has 1 block, the next row down has 2 blocks, the next row has 3 blocks, and so on.
-//      Compute recursively (no loops or multiplication) the total number of blocks in such a triangle with the given number of rows.
+//    We have triangle made of blocks. The topmost row has 1 block, the next row down has 2 blocks, the next row has 3 blocks, and so on.
+//    Compute recursively (no loops or multiplication) the total number of blocks in such a triangle with the given number of rows.
 
-//      triangle(0) → 0
-//      triangle(1) → 1
-//      triangle(2) → 3
+//    triangle(0) → 0
+//    triangle(1) → 1
+//    triangle(2) → 3
         if (rows == 0) return 0;
 
         return rows + triangle(rows - 1);
     }
 
     public int sumDigits(int n){
-//      Given a non-negative int n, return the sum of its digits recursively (no loops).
-//      Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+//    Given a non-negative int n, return the sum of its digits recursively (no loops).
+//    Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
 
-//      sumDigits(126) → 9
-//      sumDigits(49) → 13
-//      sumDigits(12) → 3
+//    sumDigits(126) → 9
+//    sumDigits(49) → 13
+//    sumDigits(12) → 3
         if (n < 10)
         {
             return n;
@@ -121,12 +121,12 @@ public class RecursionPractice {
     }
 
     public int count7(int n){
-//      Given a non-negative int n, return the count of the occurrences of 7 as a digit, so for example 717 yields 2. (no loops).
-//      Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+//    Given a non-negative int n, return the count of the occurrences of 7 as a digit, so for example 717 yields 2. (no loops).
+//    Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
 
-//      count7(717) → 2
-//      count7(7) → 1
-//      count7(123) → 0
+//    count7(717) → 2
+//    count7(7) → 1
+//    count7(123) → 0
         int seven_count = 0;
         if (n == 0)
         {
@@ -140,5 +140,36 @@ public class RecursionPractice {
         }
 
         return seven_count + count7(n/10);
+    }
+
+    public int count8(int n){
+//    Given a non-negative int n, compute recursively (no loops) the count of the occurrences of 8 as a digit,
+//    except that an 8 with another 8 immediately to its left counts double, so 8818 yields 4.
+//    Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+
+//    count8(8) → 1
+//    count8(818) → 2
+//    count8(8818) → 4
+        int eight_count = 0;
+        if (n == 0)
+        {
+            return 0;
+        }
+
+        int rightmost_value = n % 10;
+
+        int second_rightmost_value = n % 100;
+        int digit_next_to_rightmost_value = second_rightmost_value /10;
+
+        if (rightmost_value == 8)
+        {
+            eight_count++;
+        }
+        if (rightmost_value == 8 && digit_next_to_rightmost_value == 8)
+        {
+            eight_count++;
+        }
+
+        return eight_count + count8(n/10);
     }
 }
