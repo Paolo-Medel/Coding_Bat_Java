@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class RecursionPractice {
     public int factorial (int n){
 //    Given n of 1 or more, return the factorial of n, which is n * (n-1) * (n-2) ... 1. Compute the result recursively (without loops).
@@ -171,5 +173,44 @@ public class RecursionPractice {
         }
 
         return eight_count + count8(n/10);
+    }
+
+    public int powerN(int base, int n) {
+//        Given base and n that are both 1 or more, compute recursively (no loops) the value of base to the n power, so powerN(3, 2) is 9 (3 squared).
+
+//        powerN(3, 1) → 3
+//        powerN(3, 2) → 9
+//        powerN(3, 3) → 27
+        // Base case: any number to the power of 1 is itself
+        if (n == 1) {
+            return base;
+        }
+        // Recursive case: base^n = base * base^(n-1)
+        return base * powerN(base, n - 1);
+    }
+
+    public int countX(String str) {
+//        Given a string, compute recursively (no loops) the number of lowercase 'x' chars in the string.
+
+//        countX("xxhixx") → 4
+//        countX("xhixhix") → 3
+//        countX("hi") → 0
+        if (str.isEmpty()) {
+            return 0;
+        }
+
+        int xCount = 0;
+
+        int stringLen = str.length();
+        String lastChar = str.substring(stringLen - 1);
+        System.out.println(stringLen);
+
+        if (Objects.equals(lastChar, "x")) {
+            xCount++;
+        }
+
+        String newString = str.substring(0, stringLen - 1);
+
+        return xCount + countX(newString);
     }
 }
