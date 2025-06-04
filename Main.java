@@ -3,7 +3,7 @@ public class Main {
         MapPractice mappy = new MapPractice();
         RecursionPractice recurse = new RecursionPractice();
 
-        int value = recurse.count8(8808);
+        int value = recurse.countX("xxherx");
         System.out.println(value);
     }
 }
