@@ -1,3 +1,5 @@
+package src.subjects;
+
 import java.util.Objects;
 
 public class RecursionPractice {
