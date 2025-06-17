@@ -1,3 +1,5 @@
+package src.subjects;
+
 import java.util.Map;
 import java.util.Objects;
 
