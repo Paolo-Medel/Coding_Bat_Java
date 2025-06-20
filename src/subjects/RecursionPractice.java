@@ -215,4 +215,8 @@ public class RecursionPractice {
 
         return xCount + countX(newString);
     }
+
+    public int countHi(String str) {
+        return 1;
+    }
 }
